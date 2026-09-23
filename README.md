@@ -4,15 +4,17 @@ Configurable schema dumps, full SQL exports, and imports for Laravel. This packa
 
 ## Install
 
-```bash
-composer require haakco/laravel-postgres-backup
-php artisan vendor:publish --tag=postgres-backup-config
-```
-
-Until the package is registered on Packagist, add this Composer repository in the consuming application before requiring it:
+Until the package is registered on Packagist and tagged, add this Composer repository in the consuming application:
 
 ```json
 {"repositories": [{"type": "vcs", "url": "https://github.com/haakco/laravel-postgres-backup"}]}
+```
+
+Then install the current branch and publish its configuration:
+
+```bash
+composer require "haakco/laravel-postgres-backup:dev-main"
+php artisan vendor:publish --tag=postgres-backup-config
 ```
 
 Requires PHP 8.4+, Laravel 11–13, PostgreSQL client tools, and a configured Laravel `pgsql` connection. Configure credentials in Laravel's database connection or libpq's `.pgpass`; the package passes the password only through `PGPASSWORD` and never writes it to a dump or command line.
