@@ -45,8 +45,6 @@ final readonly class Connection
     /** @return array<string, string> */
     public function environment(): array
     {
-        $environment = ['PGCONNECT_TIMEOUT' => '30', 'PGPASSWORD' => $this->password ?? ''];
-
-        return $environment;
+        return ['PGCONNECT_TIMEOUT' => '30', 'PGPASSWORD' => $this->password ?? ''];
     }
 }

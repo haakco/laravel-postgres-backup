@@ -10,6 +10,10 @@ on:
       - 'composer.json'
       - 'phpunit.xml'
       - 'pint.json'
+      - 'phpstan.neon'
+      - 'rector.php'
+      - 'genNextTagPrd.sh'
+      - 'justfile'
       - '.github/workflows/ci.yml'
   pull_request:
     branches: [main]
@@ -20,6 +24,10 @@ on:
       - 'composer.json'
       - 'phpunit.xml'
       - 'pint.json'
+      - 'phpstan.neon'
+      - 'rector.php'
+      - 'genNextTagPrd.sh'
+      - 'justfile'
       - '.github/workflows/ci.yml'
 
 permissions:
@@ -35,5 +43,29 @@ jobs:
           php-version: '8.5'
           coverage: none
       - run: composer install --prefer-dist --no-interaction --no-progress
-      - run: composer format:check
+      - run: composer validate --strict
+      - run: shellcheck genNextTagPrd.sh
+      - run: composer check-all
+
+  compatibility:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - php: '8.4'
+            laravel: '11.*'
+            testbench: '9.*'
+          - php: '8.4'
+            laravel: '12.*'
+            testbench: '10.*'
+    steps:
+      - uses: actions/checkout@v6
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: none
+      - run: |
+          composer require "illuminate/support:${{ matrix.laravel }}" "illuminate/console:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-update --no-interaction
+          composer update --prefer-dist --no-interaction --no-progress
       - run: composer test

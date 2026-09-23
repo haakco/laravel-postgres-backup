@@ -47,6 +47,7 @@ Configuration is published to `config/postgres-backup.php`: connection names, sc
 
 ```bash
 composer install
-composer format:check
-composer test
+composer check-all
 ```
+
+The Justfile provides `just lint`, `just test`, and `just check` for the same checks. `just next-tag` previews the next version. `just release` creates and pushes that tag and opens a GitHub release after confirming that local `main` is clean and matches `origin/main`.

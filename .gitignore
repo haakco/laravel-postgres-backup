@@ -1,5 +1,7 @@
 /vendor/
 /.phpunit.cache/
+/.phpstan.cache/
+/.rector_cache/
 /composer.lock
 /.pint.cache
 /.idea/

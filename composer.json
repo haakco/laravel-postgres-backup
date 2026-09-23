@@ -12,9 +12,11 @@
         "symfony/process": "^7.0 || ^8.0"
     },
     "require-dev": {
+        "larastan/larastan": "^3",
         "laravel/pint": "^1.0",
         "orchestra/testbench": "^9.0 || ^10.0 || ^11.0",
-        "phpunit/phpunit": "^11.5 || ^12.0 || ^13.0"
+        "phpunit/phpunit": "^11.5 || ^12.0 || ^13.0",
+        "rector/rector": "^2"
     },
     "autoload": {"psr-4": {"Haakco\\PostgresBackup\\": "src/"}},
     "autoload-dev": {"psr-4": {"Haakco\\PostgresBackup\\Tests\\": "tests/"}},
@@ -22,7 +24,11 @@
     "scripts": {
         "test": "vendor/bin/phpunit",
         "format": "vendor/bin/pint",
-        "format:check": "vendor/bin/pint --test"
+        "format:check": "vendor/bin/pint --test",
+        "rector:check": "vendor/bin/rector process --no-diffs --dry-run",
+        "analyse": "vendor/bin/phpstan analyse --memory-limit=2G",
+        "lint:ci": ["@format:check", "@rector:check", "@analyse"],
+        "check-all": ["@lint:ci", "@test"]
     },
     "config": {"sort-packages": true},
     "minimum-stability": "stable",
