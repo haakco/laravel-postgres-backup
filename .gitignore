@@ -1,0 +1,8 @@
+/vendor/
+/.phpunit.cache/
+/composer.lock
+/.pint.cache
+/.idea/
+/.DS_Store
+*.sql
+*.sql.gz

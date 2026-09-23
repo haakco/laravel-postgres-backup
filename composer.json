@@ -1,0 +1,30 @@
+{
+    "name": "haakco/laravel-postgres-backup",
+    "description": "Configurable PostgreSQL schema dumps, database exports and imports for Laravel",
+    "type": "library",
+    "license": "MIT",
+    "homepage": "https://github.com/haakco/laravel-postgres-backup",
+    "require": {
+        "php": "^8.4 || ^8.5 || ^8.6",
+        "ext-zlib": "*",
+        "illuminate/console": "^11.0 || ^12.0 || ^13.0",
+        "illuminate/support": "^11.0 || ^12.0 || ^13.0",
+        "symfony/process": "^7.0 || ^8.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.0",
+        "orchestra/testbench": "^9.0 || ^10.0 || ^11.0",
+        "phpunit/phpunit": "^11.5 || ^12.0 || ^13.0"
+    },
+    "autoload": {"psr-4": {"Haakco\\PostgresBackup\\": "src/"}},
+    "autoload-dev": {"psr-4": {"Haakco\\PostgresBackup\\Tests\\": "tests/"}},
+    "extra": {"laravel": {"providers": ["Haakco\\PostgresBackup\\PostgresBackupServiceProvider"]}},
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "format": "vendor/bin/pint",
+        "format:check": "vendor/bin/pint --test"
+    },
+    "config": {"sort-packages": true},
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
