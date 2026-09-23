@@ -2,6 +2,8 @@
 
 Configurable schema dumps, full SQL exports, and imports for Laravel. This package uses the installed `pg_dump` and `psql` clients. It does not schedule or retain backups; use your existing scheduler and storage owner for that.
 
+See [configuration](docs/configuration.md) for every setting and [operations](docs/operations.md) for dump verification, imports, and application handoff.
+
 ## Install
 
 Until the package is registered on Packagist and tagged, add this Composer repository in the consuming application:
