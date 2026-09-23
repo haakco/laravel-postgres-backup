@@ -5,17 +5,17 @@
     "license": "MIT",
     "homepage": "https://github.com/haakco/laravel-postgres-backup",
     "require": {
-        "php": "^8.4 || ^8.5 || ^8.6",
+        "php": "^8.4",
         "ext-zlib": "*",
-        "illuminate/console": "^12.0 || ^13.0",
-        "illuminate/support": "^12.0 || ^13.0",
+        "illuminate/console": "^13.0",
+        "illuminate/support": "^13.0",
         "symfony/process": "^7.0 || ^8.0"
     },
     "require-dev": {
         "larastan/larastan": "^3",
         "laravel/pint": "^1.0",
-        "orchestra/testbench": "^10.0 || ^11.0",
-        "phpunit/phpunit": "^12.0 || ^13.0",
+        "orchestra/testbench": "^11.0",
+        "phpunit/phpunit": "^13.0",
         "rector/rector": "^2"
     },
     "autoload": {"psr-4": {"Haakco\\PostgresBackup\\": "src/"}},

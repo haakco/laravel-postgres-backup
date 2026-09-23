@@ -17,7 +17,7 @@ composer require "haakco/laravel-postgres-backup:dev-main"
 php artisan vendor:publish --tag=postgres-backup-config
 ```
 
-Requires PHP 8.4+, Laravel 12 or 13, PostgreSQL client tools, and a configured Laravel `pgsql` connection. Configure credentials in Laravel's database connection or libpq's `.pgpass`; the package passes the password only through `PGPASSWORD` and never writes it to a dump or command line.
+Requires PHP 8.4+, Laravel 13, PostgreSQL client tools, and a configured Laravel `pgsql` connection. Configure credentials in Laravel's database connection or libpq's `.pgpass`; the package passes the password only through `PGPASSWORD` and never writes it to a dump or command line.
 
 ## Schema dump
 
