@@ -42,6 +42,8 @@ jobs:
         with:
           php-version: '8.5.12'
           coverage: none
+      - name: Verify PHP security patch
+        run: php -r 'if (PHP_VERSION_ID !== 80512) { fwrite(STDERR, "Expected PHP 8.5.12; got ".PHP_VERSION.PHP_EOL); exit(1); }'
       - run: composer install --prefer-dist --no-interaction --no-progress
       - run: composer validate --strict
       - run: shellcheck genNextTagPrd.sh
